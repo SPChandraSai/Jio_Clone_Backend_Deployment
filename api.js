@@ -29,8 +29,10 @@ mongoose.connect(dbLink)
 app.use(limiter)
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("tiny"));
+
 const corsConfig = {
-    origin: true,
+    origin: "https://jio-frontend-indol.vercel.app",
     credentials: true,
 };
 // due to cors every route can be used by some other servers
@@ -88,4 +90,5 @@ module.exports = { app };
 // mongoose.connect(dbLink)
 //     .then(function (connection) {
 //         console.log("connected to db")
+
 //     }).catch(err => console.log(err));
